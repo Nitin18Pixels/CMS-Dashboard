@@ -1,6 +1,6 @@
 import React from "react";
 import { FaBars, FaBell, FaUserCircle } from "react-icons/fa";
-import "./styles.css";
+import "../../../layout/styles.css";
 
 const Header = ({ toggleSidebar }) => {
   return (

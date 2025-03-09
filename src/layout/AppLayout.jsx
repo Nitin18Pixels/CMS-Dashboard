@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Sidebar from "./Sidebar";
-import Header from "./Header";
+import Sidebar from "../components/common/sidebar";
+import Header from "../components/common/header";
 import "./styles.css";
 
 const AppLayout = ({ children }) => {
