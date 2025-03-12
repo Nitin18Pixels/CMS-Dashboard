@@ -40,15 +40,85 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  flex-direction: column;
 }
 
 .sidebar li:hover {
   background-color: #495057;
 }
 
-.sidebar ul ul {
-  padding-left: 1rem;
+/* Highlight active menu */
+.active-menu {
+  background-color: #495057;
+  border-left: 3px solid #17a2b8;
 }
+
+.active-link {
+  color: #17a2b8;
+  font-weight: bold;
+}
+
+/* Submenu styles */
+.sidebar ul ul {
+  padding-left: 1.5rem;
+  margin-top: 0;
+}
+
+.sidebar ul ul li {
+  padding-left: 0.5rem;
+  display: block;
+}
+
+.sidebar ul ul li:hover {
+  background-color: #495057;
+}
+
+/* Highlight active submenu */
+.active-submenu {
+  background-color: #495057;
+  border-left: 3px solid #17a2b8;
+}
+
+/* Submenu animation */
+.dropdown-open {
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.dropdown-closed {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+/* Sidebar open/close state */
+.sidebar-closed {
+  margin-left: 80px;
+}
+
+.sidebar-open {
+  margin-left: 250px;
+}
+
+/* Remove link styling for parent menu */
+.sidebar li div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.sidebar li a {
+  color: #ccc;
+  text-decoration: none;
+  width: 100%;
+}
+
+.sidebar li a:hover {
+  color: white;
+}
+
+
 
 /* AppLayout styles */
 .app-layout {
