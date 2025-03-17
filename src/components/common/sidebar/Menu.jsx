@@ -5,7 +5,7 @@ export const MenuTypes = [
     id: 1,
     menu: "Dashboard",
     role: [1, 2, 3],
-    link: "/dashboard",
+    link: "/",
     icon: <FaHome className="text-gray-500 hover:text-gray-200" />,
   },
   {

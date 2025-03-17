@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaAngleDown, FaAngleRight } from "react-icons/fa";
+import { FaAngleDown, FaAngleRight, FaHome, FaUser, FaCog, FaChartBar, FaChartLine } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { MenuTypes } from "./Menu";
 import "../../../layout/styles.css";
@@ -14,30 +14,25 @@ const Sidebar = ({ isOpen }) => {
 
   return (
     <div
-      className={`bg-dark text-white p-3 sidebar ${
-        isOpen ? "d-block" : "d-none d-md-block"
-      }`}
+      className={`p-3 sidebar ${isOpen ? "d-block" : "d-none d-md-block"}`}
       style={{
         width: isOpen ? "250px" : "80px",
         transition: "width 0.3s ease-in-out",
         overflowX: "hidden",
       }}
     >
-      <h4 className="text-center">{isOpen ? "Dashboard" : <FaAngleRight />}</h4>
+      <h4 className="text-center">{isOpen ? "Learn With Us" : <FaAngleRight />}</h4>
       <ul className="list-unstyled">
         {MenuTypes.map((menu, index) => {
-          // Check if the menu or any of its submenu is active
           const isActive =
             location.pathname === menu.link ||
             (menu.submenu &&
               menu.submenu.some((submenu) => location.pathname === submenu.link));
-
           return (
             <li
               key={menu.id}
               className={`p-2 ${isActive ? "active-menu" : ""}`}
             >
-              {/* Remove Link if submenu exists */}
               {menu.submenu ? (
                 <div
                   className="d-flex justify-content-between align-items-center"
@@ -45,7 +40,8 @@ const Sidebar = ({ isOpen }) => {
                   style={{ cursor: "pointer" }}
                 >
                   <div>
-                    {menu.icon} {isOpen && menu.menu}
+                    {menu.icon}
+                    <span className="ms-2">{isOpen && menu.menu}</span>
                   </div>
                   {isOpen &&
                     (openDropdown === index ? (
@@ -57,22 +53,19 @@ const Sidebar = ({ isOpen }) => {
               ) : (
                 <Link
                   to={menu.link}
-                  className={`text-white text-decoration-none ${
-                    isActive ? "active-link" : ""
-                  }`}
+                  className={`text-decoration-none ${isActive ? "active-link" : ""}`}
                 >
-                  {menu.icon} {isOpen && menu.menu}
+                  {menu.icon}
+                  <span className="ms-2">{isOpen && menu.menu}</span>
                 </Link>
               )}
 
-              {/* Submenu */}
               {menu.submenu && (
                 <ul
-                  className={`list-unstyled ps-3 ${
-                    openDropdown === index && isOpen
-                      ? "dropdown-open"
-                      : "dropdown-closed"
-                  }`}
+                  className={`list-unstyled ps-3 ${openDropdown === index && isOpen
+                    ? "dropdown-open"
+                    : "dropdown-closed"
+                    }`}
                   style={{
                     maxHeight:
                       openDropdown === index && isOpen ? "500px" : "0",
@@ -86,15 +79,11 @@ const Sidebar = ({ isOpen }) => {
                     return (
                       <li
                         key={submenu.submenuID}
-                        className={`p-2 ${
-                          isSubmenuActive ? "active-submenu" : ""
-                        }`}
+                        className={`p-2 ${isSubmenuActive ? "active-submenu" : ""}`}
                       >
                         <Link
                           to={submenu.link}
-                          className={`text-white text-decoration-none ${
-                            isSubmenuActive ? "active-link" : ""
-                          }`}
+                          className={`text-decoration-none ${isSubmenuActive ? "active-link" : ""}`}
                         >
                           {submenu.label}
                         </Link>

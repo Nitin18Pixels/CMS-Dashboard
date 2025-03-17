@@ -3,9 +3,28 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0;
-  height: 70px; /* Increase the height */
-  width: 100%; /* Ensure the header spans the full width */
+  height: 70px;
+  width: auto;
+}
+
+.navbar .form-control {
+  border-radius: 0.25rem;
+  height: 35px;
+}
+
+.navbar .btn {
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.navbar .btn:hover {
+  border-color: #007bff;
+  background-color: #f8f9fa;
+  color: #007bff;
 }
 
 .header-icons {
@@ -13,12 +32,24 @@
   align-items: center;
 }
 
+.header-icons .fa-bell,
+.header-icons .fa-user-circle {
+  color: #007bff; /* Set default color to #007bff */
+  transition: color 0.3s ease;
+  cursor: pointer; /* Show pointer on hover */
+}
+
+.header-icons .fa-bell:hover,
+.header-icons .fa-user-circle:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
 /* Sidebar styles */
 .sidebar {
   height: 100%;
   overflow-y: auto;
-  background-color: #343a40;
-  color: white;
+  background-color: white;
+  color: #007bff;
   transition: width 0.3s ease-in-out;
   position: fixed;
   top: 0;
@@ -29,6 +60,7 @@
 .sidebar h4 {
   text-align: center;
   margin-bottom: 1rem;
+  color: #007bff;
 }
 
 .sidebar ul {
@@ -36,63 +68,69 @@
 }
 
 .sidebar li {
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   flex-direction: column;
+  transition: background-color 0.3s ease, padding 0.3s ease, color 0.3s ease;
+  color: gray;
 }
 
 .sidebar li:hover {
-  background-color: #495057;
+  background-color: #f1f1f1;
+  padding-left: 1.5rem;
+  color: #007bff;
 }
 
-/* Highlight active menu */
 .active-menu {
-  background-color: #495057;
-  border-left: 3px solid #17a2b8;
+  background-color: #e9ecef;
+  border-left: 3px solid #007bff;
+  color: #007bff !important;
 }
 
 .active-link {
-  color: #17a2b8;
+  color: #007bff !important;
   font-weight: bold;
 }
 
-/* Submenu styles */
 .sidebar ul ul {
   padding-left: 1.5rem;
   margin-top: 0;
 }
 
 .sidebar ul ul li {
-  padding-left: 0.5rem;
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.3rem;
   display: block;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+  color: #007bff;
 }
 
 .sidebar ul ul li:hover {
-  background-color: #495057;
+  background-color: #f1f1f1;
+  padding-left: 1rem;
 }
 
-/* Highlight active submenu */
 .active-submenu {
-  background-color: #495057;
-  border-left: 3px solid #17a2b8;
+  background-color: #e9ecef;
+  border-left: 3px solid #007bff;
+  color: #007bff !important;
 }
 
-/* Submenu animation */
 .dropdown-open {
   max-height: 500px;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.5s ease-in-out;
 }
 
 .dropdown-closed {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.5s ease-in-out;
 }
 
-/* Sidebar open/close state */
 .sidebar-closed {
   margin-left: 80px;
 }
@@ -101,7 +139,6 @@
   margin-left: 250px;
 }
 
-/* Remove link styling for parent menu */
 .sidebar li div {
   display: flex;
   align-items: center;
@@ -109,16 +146,20 @@
 }
 
 .sidebar li a {
-  color: #ccc;
+  color: gray;
   text-decoration: none;
   width: 100%;
+  transition: color 0.3s ease;
 }
 
 .sidebar li a:hover {
-  color: white;
+  color: #007bff;
 }
 
-
+.sidebar li div span,
+.sidebar li a span {
+  margin-left: 0.5rem;
+}
 
 /* AppLayout styles */
 .app-layout {
@@ -129,7 +170,6 @@
 }
 
 .app-layout .content {
-  padding: 1rem;
   background-color: #f8f9fa;
   flex-grow: 1;
   transition: margin-left 0.3s ease-in-out;
@@ -141,4 +181,49 @@
 
 .sidebar-closed {
   margin-left: 80px;
+}
+
+.notification-dropdown {
+  width: 300px;
+  top: 50px;
+  right: 10px;
+  z-index: 1050;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+}
+
+.notification-header {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.notification-item {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.notification-item:hover {
+  background-color: #f1f1f1;
+}
+
+.notification-footer {
+  background-color: #f8f9fa;
+}
+
+.profile-dropdown {
+  width: 150px;
+  top: 50px;
+  right: 10px;
+  z-index: 1050;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+}
+
+.profile-item {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-item:hover {
+  background-color: #f1f1f1;
 }
