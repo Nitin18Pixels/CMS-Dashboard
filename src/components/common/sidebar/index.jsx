@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaAngleDown, FaAngleRight, FaHome, FaUser, FaCog, FaChartBar, FaChartLine } from "react-icons/fa";
+import { FaAngleDown, FaAngleRight } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { MenuTypes } from "./Menu";
 import "../../../layout/styles.css";
@@ -14,7 +14,7 @@ const Sidebar = ({ isOpen }) => {
 
   return (
     <div
-      className={`p-3 sidebar ${isOpen ? "d-block" : "d-none d-md-block"}`}
+      className={`p-3 sidebar ${isOpen ? "sidebar-open" : ""}`}
       style={{
         width: isOpen ? "250px" : "80px",
         transition: "width 0.3s ease-in-out",
