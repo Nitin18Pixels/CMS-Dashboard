@@ -227,3 +227,41 @@
 .profile-item:hover {
   background-color: #f1f1f1;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80%; /* Sidebar takes 80% of the screen in mobile view */
+  }
+
+  .sidebar .close-btn {
+    display: block; /* Show close button in mobile view */
+  }
+
+  .app-layout .content {
+    margin-left: 0; /* Remove margin for content in mobile view */
+    padding: 0; /* Remove extra padding */
+  }
+
+  .navbar {
+    z-index: 1000; /* Ensure header is above content */
+    padding: 0.5rem; /* Adjust padding for mobile view */
+  }
+
+  .navbar .form-control {
+    width: 100%; /* Make search input full width */
+    margin-bottom: 0.5rem;
+  }
+
+  .header-icons {
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .notification-dropdown,
+  .profile-dropdown {
+    width: 90%; /* Adjust dropdown width for smaller screens */
+    left: 5%; /* Center dropdowns */
+    right: auto;
+  }
+}
