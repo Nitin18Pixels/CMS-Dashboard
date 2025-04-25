@@ -6,6 +6,7 @@ const componentMapping = {
   Settings: lazy(() => import("./pages/Settings")),
   Reports: lazy(() => import("./pages/Reports")),
   Analytics: lazy(() => import("./pages/Analytics")),
+  Login: lazy(() => import("./auth/login/Login")),
 };
 
 const routesConfig = [
@@ -59,4 +60,11 @@ const routesConfig = [
   },
 ];
 
-export { routesConfig, componentMapping };
+const singleRouteConfig = [
+  {
+    path: "/login",
+    component: "Login",
+  },
+]
+
+export { routesConfig, componentMapping, singleRouteConfig };

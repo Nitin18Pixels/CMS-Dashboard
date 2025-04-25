@@ -4,7 +4,7 @@ import Header from "../components/common/header";
 import "./styles.css";
 
 const AppLayout = ({ children }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarOpen((prev) => !prev);
@@ -12,7 +12,7 @@ const AppLayout = ({ children }) => {
 
   return (
     <div className="app-layout">
-      <Sidebar isOpen={isSidebarOpen} />
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       <div className={`content ${isSidebarOpen ? "sidebar-open" : "sidebar-closed"}`}>
         <Header toggleSidebar={toggleSidebar} />
         <div className="p-3">{children}</div>

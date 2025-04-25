@@ -12,6 +12,7 @@ export const MenuTypes = [
     id: 2,
     menu: "User Management",
     role: [1, 2, 3],
+    // link: "/user-management",
     icon: <FaUser className="text-gray-500 hover:text-gray-200" />,
     submenu: [
       { submenuID: 1, link: "/user-list", label: "User List" },

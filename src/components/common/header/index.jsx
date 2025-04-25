@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaBars, FaBell, FaUserCircle, FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "../../../layout/styles.css";
 
 const Header = ({ toggleSidebar }) => {
@@ -39,7 +40,7 @@ const Header = ({ toggleSidebar }) => {
   }, []);
 
   return (
-    <nav className="navbar navbar-dark d-flex align-items-center">
+    <nav className="navbar navbar-dark d-flex align-items-center header">
       <div className="d-flex align-items-center">
         <button className="btn btn-light ms-2" onClick={toggleSidebar}>
           <FaBars />
@@ -87,13 +88,13 @@ const Header = ({ toggleSidebar }) => {
             className="profile-dropdown position-absolute bg-white rounded shadow"
           >
             <div className="profile-item p-2">
-              <a href="/profile" className="text-dark text-decoration-none">Profile</a>
+              <Link to="/profile" className="text-dark text-decoration-none">Profile</Link>
             </div>
             <div className="profile-item p-2">
-              <a href="/settings" className="text-dark text-decoration-none">Settings</a>
+              <Link to="/settings" className="text-dark text-decoration-none">Settings</Link>
             </div>
             <div className="profile-item p-2">
-              <a href="/logout" className="text-dark text-decoration-none">Logout</a>
+              <Link to="/logout" className="text-dark text-decoration-none">Logout</Link>
             </div>
           </div>
         )}
