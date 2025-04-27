@@ -13,7 +13,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   };
 
   return (
-    <div className={`p-3 sidebar ${isOpen ? "d-block" : "d-none d-md-block"}`}>
+    <div className={`p-4 sidebar ${isOpen ? "d-block" : "d-none d-md-block"}`}>
       {/* Close button for mobile view */}
       {isOpen && (
         <button className="close-btn btn btn-light ms-2 d-md-none" onClick={toggleSidebar}>
@@ -51,7 +51,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               )}
               {menu.submenu && (
                 <ul
-                  className={`list-unstyled ps-3 ${openDropdown === index && isOpen ? "dropdown-open" : "dropdown-closed"}`}
+                  className={`list-unstyled ps-1 ${openDropdown === index && isOpen ? "dropdown-open" : "dropdown-closed"}`}
                   style={{ maxHeight: openDropdown === index && isOpen ? "500px" : "0", overflow: "hidden", transition: "max-height 0.3s ease" }}
                 >
                   {menu.submenu.map((submenu) => {
